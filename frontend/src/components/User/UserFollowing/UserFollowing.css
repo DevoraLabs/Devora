@@ -1,0 +1,16 @@
+.user-following {
+    display: flex;
+    justify-content: center;
+    background-color: #1f1c2c;
+    box-shadow: 0px 0px 15px rgba(146, 141, 171, 0.3);
+    border-radius: 20px;
+    padding: 20px 40px;
+    max-width: 300px;
+    width: 100%;
+}
+
+.user-following-title {
+    text-align: center;
+    font-size: 28px;
+    color: #928dab;
+}
