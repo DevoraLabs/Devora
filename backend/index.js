@@ -4,6 +4,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 const authRouter = require('./routes/authRoutes')
+const userRouter = require('./routes/userRoutes')
 const PORT = process.env.PORT || 5000
 
 const app = express()
@@ -15,6 +16,7 @@ app.use(cors({
     credentials: true                
 }));
 app.use("/auth", authRouter)
+app.use("/user", userRouter)
 
 const start = async () => {
     try {

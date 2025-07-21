@@ -1,33 +1,73 @@
 import "./UserPortfolio.css"
 import Pencil from "../../../assets/pencil.png"
+import { useEffect, useState, useCallback  } from "react"
+import EditPortfolio from "../EditPortfolio/EditPortfolio"
+import $api from '../../../http/index'
+import { useSelector } from "react-redux"
 
 function UserPortfolio() {
+    const username = useSelector((state) => state.user.username);
+    const [editorVisible, setEditorVisible] = useState(false);
+    const [userData, setUserData] = useState("");
+
+    const fetchUserData = useCallback(() => {
+        $api.get(`/user/${username}`)
+            .then(res => {
+                setUserData(res.data)
+            })
+            .catch(err => {
+                console.error("Ошибка загрузки пользователя:", err);
+            })
+    }, [username])
+
+    useEffect(() => {
+        fetchUserData();
+    }, [fetchUserData])
+
     return (
         <div className="user-portfolio">
             <div className="user-portfolio-title-container">
                 <h2 className="user-portfolio-title">Портфолио</h2>
-                <button className="user-portfolio-pencil-button">
+                <button 
+                    className="user-portfolio-pencil-button" 
+                    onClick={() => setEditorVisible(true)}
+                >
                     <img src={Pencil} alt="pencil" className="user-portfolio-pencil" />
                 </button>
             </div>
 
             <ul className="user-portfolio-container">
                 <li className="user-portfolio-item">
-                    <h3>Полное Имя</h3>
+                    <h3>{userData?.fullname}</h3>
                 </li>
                 <li className="user-portfolio-item">
                     <h6>О себе:</h6>
-                    <p>текст</p>
+                    <p>{userData?.about}</p>
                 </li>
                 <li className="user-portfolio-item">
                     <h6>Навыки:</h6>
-                    <p>текст</p>
+                    <p>{userData?.skills}</p>
                 </li>
                 <li className="user-portfolio-item">
                     <h6>Контакты:</h6>
-                    <p>текст</p>
+                    <ul>
+                        {userData?.contacts?.map((contact, idx) => (
+                        <li key={idx}>
+                            <a href={contact.link} target="_blank" rel="noopener noreferrer">
+                            {contact.name}
+                            </a>
+                        </li>
+                        ))}
+                    </ul>
                 </li>
             </ul>
+
+            {editorVisible && (
+                <EditPortfolio onClose={() => {
+                    setEditorVisible(false);
+                    fetchUserData();
+                }} />
+            )}
         </div>
     )
 }
