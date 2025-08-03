@@ -1,8 +1,8 @@
 import "./EditPortfolio.css"
 import { useFieldArray, useForm } from "react-hook-form"
 import $api from '../../../http/index'
-import { useSelector } from "react-redux"
 import { useEffect } from "react"
+import { useUser } from "../../../context/UserContext"
 
 function EditPortfolio({ onClose }) {
     const { register, control, handleSubmit, reset } = useForm({
@@ -13,7 +13,7 @@ function EditPortfolio({ onClose }) {
             contacts: []
         }
     });
-    const username = useSelector((state) => state.user.username);
+    const { username } = useUser();
 
     const { fields, append, remove } = useFieldArray({
         control,

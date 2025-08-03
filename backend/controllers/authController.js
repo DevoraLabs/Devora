@@ -85,7 +85,7 @@ class authController {
             const tokens = tokenService.generateTokens({ id: user._id, username: user.username })
             await tokenService.saveToken(user._id, tokens.refreshToken)
 
-            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true});
+            res.cookie('refreshToken', tokens.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true});
             return res.json({ ...tokens, user });
         } catch (e) {
             res.status(500).json({ message: 'Ошибка сервера' });

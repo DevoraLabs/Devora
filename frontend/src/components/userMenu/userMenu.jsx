@@ -1,19 +1,16 @@
 import { Link, useNavigate } from "react-router-dom"
 import $api from '../../http/index'
 import "./userMenu.css"
-import { logout } from '../../state/user/userSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useUser } from "../../context/UserContext";
 
 function UserMenu() {
-    const username = useSelector((state) => state.user.username);
-    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { username } = useUser();
 
     const handleLogout = async () => {
         try {
             await $api.post('/auth/logout');
             localStorage.removeItem('accessToken'); 
-            dispatch(logout());
             navigate("/")
             window.location.reload(); 
         } catch (error) {

@@ -3,14 +3,13 @@ import './LoginPage.css';
 import $api from '../../http/index';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { login } from "../../state/user/userSlice";
-import { useDispatch } from 'react-redux';
+import { useUser } from '../../context/UserContext';
 
 function LoginPage() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
+	const { setUsername } = useUser();
 
 	const onLogin = (data) => {
 		setLoading(true);
@@ -23,7 +22,7 @@ function LoginPage() {
 			.then(res => {
 				localStorage.setItem('accessToken', res.data.accessToken);
 				console.log('Login success:', res.data.user);
-				dispatch(login(res.data.user.username));
+				setUsername(res.data.user.username);
 				navigate('/');
 			}) 
 			.catch(err => {

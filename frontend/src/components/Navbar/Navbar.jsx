@@ -3,10 +3,9 @@ import "./Navbar.css"
 import { useState } from "react"
 import userIcon from "../../assets/user-icon.png"
 import UserMenu from "../userMenu/userMenu"
-import { useSelector } from "react-redux"
 
 function Navbar() {
-    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+    const isLoggedIn = !!localStorage.getItem('accessToken');
     const [userMenuVisible, setUserMenuVisible] = useState(false);
     const navigate = useNavigate();
 

@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const authRouter = require('./routes/authRoutes')
 const userRouter = require('./routes/userRoutes')
 const startupRouter = require('./routes/startupRoutes')
+const authMiddleware = require('./middlewares/authMiddleware')
 const PORT = process.env.PORT || 5000
 
 const app = express()
@@ -17,8 +18,8 @@ app.use(cors({
     credentials: true                
 }));
 app.use("/auth", authRouter)
-app.use("/user", userRouter)
-app.use("/startups", startupRouter)
+app.use("/user", authMiddleware, userRouter)
+app.use("/startups", authMiddleware, startupRouter)
 
 const start = async () => {
     try {

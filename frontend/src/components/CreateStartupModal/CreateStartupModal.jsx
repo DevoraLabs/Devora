@@ -2,11 +2,11 @@ import './CreateStartupModal.css'
 import { useForm } from "react-hook-form"
 import Cross from "../../assets/cross.png"
 import $api from '../../http/index'
-import { useSelector } from "react-redux"
+import { useUser } from '../../context/UserContext'
 
 
 function CreateStartupModal({ onClose }) {
-    const username = useSelector((state) => state.user.username);
+    const { username } = useUser();
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
