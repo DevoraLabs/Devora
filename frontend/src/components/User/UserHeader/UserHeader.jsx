@@ -1,9 +1,9 @@
 import "./UserHeader.css"
 import UserIcon from "../../../assets/user-icon.png"
-import { useSelector } from 'react-redux';
+import { useParams } from "react-router-dom"
 
 function UserHeader() {
-    const username = useSelector((state) => state.user.username);
+    const { username } = useParams();
 
     return (
         <div className="user-header">

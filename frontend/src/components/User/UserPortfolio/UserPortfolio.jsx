@@ -3,10 +3,10 @@ import Pencil from "../../../assets/pencil.png"
 import { useEffect, useState, useCallback  } from "react"
 import EditPortfolio from "../EditPortfolio/EditPortfolio"
 import $api from '../../../http/index'
-import { useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
 
 function UserPortfolio() {
-    const username = useSelector((state) => state.user.username);
+    const { username } = useParams();
     const [editorVisible, setEditorVisible] = useState(false);
     const [userData, setUserData] = useState("");
 

@@ -5,3 +5,25 @@
     background-size: cover;
     background-position: center;
 }
+
+.create-startup-button {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: transparent;
+    border: 3px solid #928dab;
+    border-radius: 50px;
+    color: #928dab;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.create-startup-button:hover {
+    background-color: #928dab;
+    color: #1f1c2c;
+}
