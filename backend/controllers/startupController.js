@@ -30,6 +30,20 @@ class startupController {
             res.status(500).json({ message: 'Ошибка при получении стартапов' })
         }
     }
+
+    async getMyStartups(req, res) {
+        try {
+            const { username } = req.params;
+            if (!username) {
+                return res.status(400).json({ message: 'Username не передан' });
+            }
+            const myStartups = await Startup.find({ founder: username })
+            res.json(myStartups)
+        } catch (e) {
+            console.log(e)
+            res.status(500).json({ message: 'Ошибка при получении стартапов пользователя' })
+        }
+    }
 }
 
 module.exports = new startupController()

@@ -4,9 +4,11 @@ import { useEffect, useState, useCallback  } from "react"
 import EditPortfolio from "../EditPortfolio/EditPortfolio"
 import $api from '../../../http/index'
 import { useParams } from "react-router-dom"
+import { useUser } from "../../../context/UserContext"
 
 function UserPortfolio() {
     const { username } = useParams();
+    const { username: authUsername } = useUser();
     const [editorVisible, setEditorVisible] = useState(false);
     const [userData, setUserData] = useState("");
 
@@ -28,12 +30,14 @@ function UserPortfolio() {
         <div className="user-portfolio">
             <div className="user-portfolio-title-container">
                 <h2 className="user-portfolio-title">Портфолио</h2>
-                <button 
-                    className="user-portfolio-pencil-button" 
-                    onClick={() => setEditorVisible(true)}
-                >
-                    <img src={Pencil} alt="pencil" className="user-portfolio-pencil" />
-                </button>
+                {username === authUsername && (
+                    <button 
+                        className="user-portfolio-pencil-button" 
+                        onClick={() => setEditorVisible(true)}
+                    >
+                        <img src={Pencil} alt="pencil" className="user-portfolio-pencil" />
+                    </button>
+                )}
             </div>
 
             <ul className="user-portfolio-container">
