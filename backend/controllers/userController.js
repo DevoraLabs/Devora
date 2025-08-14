@@ -38,6 +38,22 @@ class userController {
             res.status(500).json({ message: 'Ошибка при обновлении пользователя' })
         }
     }
+
+    async idByUsername (req, res) {
+        try {
+            const { username } = req.params
+            const user = await User.findOne({username}, '_id')
+
+            if (!user) {
+                return res.status(404).json({ message: "Пользователь не найден" })
+            }
+            
+            res.json({userId: user._id})
+        } catch (error) {
+            console.log(e)
+            res.status(500).json({ message: 'Ошибка сервера' })
+        }
+    }
 }
 
 module.exports = new userController()

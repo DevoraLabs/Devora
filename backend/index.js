@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const authRouter = require('./routes/authRoutes')
 const userRouter = require('./routes/userRoutes')
 const startupRouter = require('./routes/startupRoutes')
+const followRouter = require('./routes/followRoutes')
 const authMiddleware = require('./middlewares/authMiddleware')
 const PORT = process.env.PORT || 5000
 
@@ -20,6 +21,7 @@ app.use(cors({
 app.use("/auth", authRouter)
 app.use("/user", authMiddleware, userRouter)
 app.use("/startups", authMiddleware, startupRouter)
+app.use("/follow", authMiddleware, followRouter)
 
 const start = async () => {
     try {

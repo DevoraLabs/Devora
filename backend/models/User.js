@@ -9,7 +9,9 @@ const User = new Schema({
     contacts: [{
         name: {type: String},
         link: {type: String}
-    }]
+    }],
+    followersCount: {type: Number, default: 0},
+    followingCount: {type: Number, default: 0}
 })
 
 module.exports = model('User', User)
