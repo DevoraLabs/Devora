@@ -3,11 +3,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
+    padding: 15px 40px;
 }
 
 .logo-text {
-    color: #928dab;
+    color: white;
 }
 
 .logo-text-link {
@@ -46,5 +46,5 @@
 }
 
 .user-icon:hover {
-    background-color: #2d293e;
+    background-color: #1a1c29;
 }
