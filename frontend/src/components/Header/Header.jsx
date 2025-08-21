@@ -1,12 +1,9 @@
-import { useState } from "react"
 import Navbar from "../Navbar/Navbar"
 import "./Header.css"
-import CreateStartupModal from "../CreateStartupModal/CreateStartupModal"
 import LeftNavbar from "../LeftNavbar/LeftNavbar"
+import HeaderStartups from "../HeaderStartups/HeaderStartups"
 
 function Header() {
-    const [createStartup, setCreateStartup] = useState(false)
-
     return (
         <div className='header'>
             <Navbar />
@@ -14,18 +11,9 @@ function Header() {
             <div className="header-top-divider"></div>
             <div className="header-left-divider"></div>
 
-            <button 
-                className="create-startup-button" 
-                onClick={() => setCreateStartup(true)}
-            >
-                Создать стартап
-            </button>
+            <h1 className="main-section">Про стартап</h1>
 
-            {createStartup && (
-                <CreateStartupModal onClose={() => {
-                    setCreateStartup(false)
-                }} />
-            )}
+            <HeaderStartups />
         </div>
     )
 }

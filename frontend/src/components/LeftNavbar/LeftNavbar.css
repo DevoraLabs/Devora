@@ -44,3 +44,25 @@
     font-size: 18px;
     margin-top: 2px;
 }
+
+.left-navbar-button {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.create-startup-button {
+    background-color: #2568c1;
+    border: 3px solid #2980ed;
+    border-radius: 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.create-startup-button:hover {
+    box-shadow: 0 0 15px #2980ed, 0 0 30px #2980ed;
+}

@@ -1,7 +1,6 @@
 .create-startup {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
     background-color: #0009;
@@ -37,7 +36,7 @@
 }
 
 .create-startup-cross:hover {
-    background-color: #b5b0cb;
+    background-color: #747790;
 }
 
 .create-startup-cross img {
