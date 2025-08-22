@@ -1,0 +1,46 @@
+.user-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 40px;
+	gap: 20px;
+	background-color: #1f1c2c;
+	box-shadow: 0px 0px 15px rgba(146, 141, 171, 0.3);
+	border-radius: 20px;
+	margin: 20px 40px 0px 40px;
+}
+
+.user-header-left {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.user-header-icon {
+	width: 55px;
+	height: 55px;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.user-header-username {
+	color: #928dab;
+}
+
+.user-header-follow {
+	border: 3px solid #928dab;
+	background-color: transparent;
+	color: #928dab;
+	border-radius: 100px;
+	padding: 10px 30px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.5s ease;
+}
+
+.user-header-follow:hover {
+	background-color: #928dab;
+	color: #1f1c2c;
+	border: 3px solid transparent;
+}

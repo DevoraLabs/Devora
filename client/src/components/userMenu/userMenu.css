@@ -1,0 +1,41 @@
+.user-menu {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	position: absolute;
+	top: 8%;
+	right: 30px;
+	background-color: #928dab;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 15px;
+	min-width: 150px;
+	z-index: 2;
+}
+
+.user-menu-link,
+.logout-button {
+	color: #1f1c2c;
+	font-weight: 500;
+	font-size: 14px;
+	transition: all 0.5s ease;
+	padding: 5px;
+	padding-left: 10px;
+}
+
+.user-menu-link {
+	text-decoration: none;
+}
+
+.logout-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	text-align: left;
+}
+
+.user-menu-link:hover,
+.logout-button:hover {
+	background-color: rgb(31, 28, 44, 0.2);
+	border-radius: 5px;
+}
