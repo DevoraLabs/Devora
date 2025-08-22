@@ -16,10 +16,10 @@ CHANGED_FILES=$(git diff --cached --name-only)
 
 HOME="$(git rev-parse --show-toplevel)"
 
-echo -e "${BLUE}Changes in 'frontend' directory detected.${RESET}"
+echo -e "${BLUE}Changes in 'client' directory detected.${RESET}"
 
 echo -e "${GREEN}[|] Running formatted and build for client...${RESET}"
-cd ./frontend
+cd ./client
 pnpm format
 pnpm build
 
@@ -27,36 +27,4 @@ git add .
 echo -e "${GREEN}[+] Success formatted and build for client!${RESET}"
 cd "$HOME"
 
-echo -e "${BLUE}Changes in 'server.http' directory detected.${RESET}"
-
-echo -e "${GREEN}[|] Running formatted and build for server.http...${RESET}"
-cd ./server.admrc.http
-
-make fmt
-# make check
-# make lint
-
-# make build
-
-git add .
-echo -e "${GREEN}[+] Success formatted and build for server.http!${RESET}"
-cd "$HOME"
-
-echo -e "${BLUE}Changes in 'server.tcp' directory detected.${RESET}"
-
-echo -e "${GREEN}[|] Running formatted and build for server.tcp...${RESET}"
-cd ./server.admrc.tcp
-
-make fmt
-# make check
-# make lint
-
-# make build
-
-git add .
-echo -e "${GREEN}[+] Success formatted and build for server.tcp!${RESET}"
-cd "$HOME"
-
-git add .
-# git commit -m "build 'binary files' for release/push bin/*"
 echo -e "${GREEN}Husky is successfully!${RESET}"
