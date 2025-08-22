@@ -5,7 +5,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 function SignupPage() {
-	const { register, handleSubmit, formState: { errors } } = useForm();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
@@ -17,27 +21,27 @@ function SignupPage() {
 		//}, 3000);
 
 		$api.post('/auth/signup', data)
-			.then(res => {
+			.then((res) => {
 				console.log('Signup success:', res.data.user);
 				navigate('/login');
-			}) 
-			.catch(err => {
-				console.error("Signup error:", err);
+			})
+			.catch((err) => {
+				console.error('Signup error:', err);
 			})
 			.finally(() => {
 				setLoading(false);
 			});
-	}
+	};
 
 	return (
-		<div className='signup-container'>
+		<div className="signup-container">
 			<form onSubmit={handleSubmit(onSignup)}>
 				<input
 					{...register('username', {
 						required: 'Имя обязательно',
 					})}
-					type='text'
-					placeholder='Имя пользователя'
+					type="text"
+					placeholder="Имя пользователя"
 				/>
 
 				{errors.username && (
@@ -47,26 +51,28 @@ function SignupPage() {
 				<input
 					{...register('password', {
 						required: 'Пароль обязателен',
-						minLength: { value: 6, message: 'Минимум 6 символов' }
+						minLength: { value: 6, message: 'Минимум 6 символов' },
 					})}
-					type='password'
-					placeholder='Пароль'
+					type="password"
+					placeholder="Пароль"
 				/>
 
 				{errors.password && (
 					<p className="error-message">{errors.password.message}</p>
 				)}
 
-				<button type='submit' disabled={loading}>
-					{loading ? <span className="loader"></span> : 'Зарегистрироваться'}
+				<button type="submit" disabled={loading}>
+					{loading ? (
+						<span className="loader"></span>
+					) : (
+						'Зарегистрироваться'
+					)}
 				</button>
 			</form>
 
-            <Link to="/login">
-                Уже есть аккаунт
-            </Link>
+			<Link to="/login">Уже есть аккаунт</Link>
 		</div>
-	)
+	);
 }
 
-export default SignupPage
+export default SignupPage;

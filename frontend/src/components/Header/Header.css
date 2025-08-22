@@ -1,31 +1,31 @@
 .header {
-    height: 100vh;
-    width: 100%;
-    background-color: #0e0e1b;
+	height: 100vh;
+	width: 100%;
+	background-color: #0e0e1b;
 }
 
 .header-top-divider {
-    position: absolute;
-    top: 80px;
-    left: 0px;
-    width: 100%;
-    border-top: 1px solid #747790;
-    opacity: 0.2;
+	position: absolute;
+	top: 80px;
+	left: 0px;
+	width: 100%;
+	border-top: 1px solid #747790;
+	opacity: 0.2;
 }
 
 .header-left-divider {
-    position: absolute;
-    top: 0px;
-    left: 250px;
-    height: 100%;
-    border-left: 1px solid #747790;
-    opacity: 0.2;
+	position: absolute;
+	top: 0px;
+	left: 250px;
+	height: 100%;
+	border-left: 1px solid #747790;
+	opacity: 0.2;
 }
 
 .main-section {
-    width: calc(100%-350px);
-    margin-left: 320px;
-    margin-top: 50px;
-    height: 250px;
-    color: white;
+	width: calc(100%-350px);
+	margin-left: 320px;
+	margin-top: 50px;
+	height: 250px;
+	color: white;
 }
